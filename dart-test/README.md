@@ -4,11 +4,12 @@ Test, analyze and lint a Dart package.
 
 ## Variables
 
-| Required? | Variable                 | Description                            |
-|-----------|--------------------------|----------------------------------------|
-| No        | **DTA_DISABLE_LINTER**   | Disable dry-run `dartfmt` linter check |
-| No        | **DTA_DISABLE_ANALYZER** | Disable `dartanalyzer`                 |
-| No        | **DTA_DISABLE_TESTS**    | Disable `pub run test`                 |
+| Required? | Variable                 | Description                                                               |
+|-----------|--------------------------|---------------------------------------------------------------------------|
+| No        | **DTA_DISABLE_LINTER**   | Disable dry-run `dartfmt` linter check                                    |
+| No        | **DTA_DISABLE_ANALYZER** | Disable `dartanalyzer`                                                    |
+| No        | **DTA_DISABLE_TESTS**    | Disable `pub run test`                                                    |
+| No        | **DTA_EXCLUDE_REGEX**    | Regex to be used to exclude folders when looking for `pubspec.yaml` files |
 
 ## Example workflow
 
@@ -19,6 +20,6 @@ workflow "Test my package!" {
 }
 
 action "Test" {
-  uses = "Igor1201/actions/dart-test@master"
+  uses = "comigor/actions/dart-test@master"
 }
 ```
