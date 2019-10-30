@@ -11,6 +11,7 @@ I don't know if there's a better way of doing this.
 | Yes       | **PUB_ACCESS_TOKEN**     | `accessToken` from `~/.pub-cache/credentials.json`  |
 | Yes       | **PUB_REFRESH_TOKEN**    | `refreshToken` from `~/.pub-cache/credentials.json` |
 | Yes       | **PUB_EXPIRATION**       | `expiration` from `~/.pub-cache/credentials.json`   |
+| No        | **PUB_SCOPES**           | `scopes` from `~/.pub-cache/credentials.json`. Defaults to `["https://www.googleapis.com/auth/plus.me","https://www.googleapis.com/auth/userinfo.email"]` |
 
 ## Example workflow
 
@@ -21,12 +22,12 @@ workflow "Test and deploy" {
 }
 
 action "Test" {
-  uses = "Igor1201/actions/dart-test@master"
+  uses = "comigor/actions/dart-test@master"
 }
 
 action "Deploy" {
-  uses = "Igor1201/actions/pub-publish@master"
-  secrets = ["PUB_ACCESS_TOKEN", "PUB_REFRESH_TOKEN", "PUB_EXPIRATION"]
+  uses = "comigor/actions/pub-publish@master"
+  secrets = ["PUB_ACCESS_TOKEN", "PUB_REFRESH_TOKEN", "PUB_EXPIRATION", "PUB_SCOPES"]
   needs = ["Test"]
 }
 ```
