@@ -8,7 +8,7 @@ I don't know if there's a better way of doing this.
 
 | Required? | Variable              | Description                                                     |
 |-----------|-----------------------|-----------------------------------------------------------------|
-| Yes       | **PUB_CREDENTIALS**   | Your `~/.pub-cache/credentials.json` after logged in to pub.dev |
+| Yes       | **PUB_CREDENTIALS**   | Your `~/.pub-cache/credentials.json` IN BASE64 after logged in to pub.dev |
 
 ## Example workflow
 
