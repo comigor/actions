@@ -1,6 +1,6 @@
 # dart-test action
 
-Test, analyze and lint a Dart package.
+Test, analyze and lint a Dart/Flutter package.
 
 ## Variables
 

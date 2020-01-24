@@ -9,7 +9,7 @@ for ppath in $(find . -name pubspec.yaml | grep -ve "$DTA_EXCLUDE_REGEX"); do
 
   [ -d "test" ] && {
     echo "=== Downloading dependencies ==="
-    pub get
+    flutter pub get
 
     if [ -z "$DTA_DISABLE_LINTER" ]; then
       echo "=== Running linter ==="
@@ -27,7 +27,7 @@ for ppath in $(find . -name pubspec.yaml | grep -ve "$DTA_EXCLUDE_REGEX"); do
 
     if [ -z "$DTA_DISABLE_TESTS" ]; then
       echo "=== Running tests ==="
-      pub run test
+      flutter test
     fi
   }
 

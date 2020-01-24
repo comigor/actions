@@ -1,10 +1,10 @@
-FROM google/dart
+FROM cirrusci/flutter:stable
 
 ENV PUB_CREDENTIALS="{}"
 
 LABEL "maintainer"="Igor Borges <igor@borges.dev>"
 LABEL "repository"="https://github.com/comigor/actions"
-LABEL "version"="2.1.0"
+LABEL "version"="3.1.0"
 
 LABEL "com.github.actions.name"="Pub Publish"
 LABEL "com.github.actions.description"="Publishes a Dart package to pub.dartlang.org"

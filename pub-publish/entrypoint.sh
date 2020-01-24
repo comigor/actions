@@ -4,7 +4,7 @@ set -eu
 cd "$GITHUB_WORKSPACE"
 
 echo "Downloading dependencies"
-pub get
+flutter pub get
 
 echo "$PUB_CREDENTIALS" > ~/.pub-cache/credentials.json
 
