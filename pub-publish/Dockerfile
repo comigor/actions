@@ -11,5 +11,7 @@ LABEL "com.github.actions.description"="Publishes a Dart package to pub.dartlang
 LABEL "com.github.actions.icon"="upload-cloud"
 LABEL "com.github.actions.color"="blue"
 
+USER root
+
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/bin/bash", "-c", "timeout 60 /entrypoint.sh"]

@@ -14,5 +14,7 @@ LABEL "com.github.actions.description"="Test, analyze and lint a Dart/Flutter pa
 LABEL "com.github.actions.icon"="list"
 LABEL "com.github.actions.color"="green"
 
+USER root
+
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
