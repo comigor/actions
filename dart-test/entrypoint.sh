@@ -1,6 +1,11 @@
 #!/bin/bash
 set -eu
 
+echo "DTA_DISABLE_LINTER=$DTA_DISABLE_LINTER"
+echo "DTA_DISABLE_ANALYZER=$DTA_DISABLE_ANALYZER"
+echo "DTA_DISABLE_TESTS=$DTA_DISABLE_TESTS"
+echo "DTA_EXCLUDE_REGEX=$DTA_EXCLUDE_REGEX"
+
 cd "$GITHUB_WORKSPACE"
 
 for ppath in $(find . -name pubspec.yaml | grep -ve "$DTA_EXCLUDE_REGEX"); do
@@ -27,7 +32,7 @@ for ppath in $(find . -name pubspec.yaml | grep -ve "$DTA_EXCLUDE_REGEX"); do
 
     if [ -z "$DTA_DISABLE_TESTS" ]; then
       echo "=== Running tests ==="
-      flutter test
+      flutter pub run test
     fi
   }
 
