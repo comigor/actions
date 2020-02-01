@@ -1,7 +1,7 @@
 FROM cirrusci/flutter:stable
 
 ENV PUB_CREDENTIALS="{}"
-ENV DTA_IS_FLUTTER=""
+ENV PUB_IS_FLUTTER=""
 
 LABEL "maintainer"="Igor Borges <igor@borges.dev>"
 LABEL "repository"="https://github.com/comigor/actions"

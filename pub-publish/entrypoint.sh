@@ -1,12 +1,12 @@
 #!/bin/sh
 set -eu
 
-echo "DTA_IS_FLUTTER=$DTA_IS_FLUTTER"
+echo "PUB_IS_FLUTTER=$PUB_IS_FLUTTER"
 
 cd "$GITHUB_WORKSPACE"
 
 echo "Downloading dependencies"
-if [ -z "$DTA_IS_FLUTTER" ]; then
+if [ -z "$PUB_IS_FLUTTER" ]; then
   pub get
 else
   flutter pub get
