@@ -4,6 +4,7 @@ ENV DTA_DISABLE_LINTER=""
 ENV DTA_DISABLE_ANALYZER=""
 ENV DTA_DISABLE_TESTS=""
 ENV DTA_EXCLUDE_REGEX="____________"
+ENV DTA_IS_FLUTTER=""
 
 LABEL "maintainer"="Igor Borges <igor@borges.dev>"
 LABEL "repository"="https://github.com/comigor/actions"
