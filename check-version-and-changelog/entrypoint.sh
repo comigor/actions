@@ -3,7 +3,7 @@
 cd "$GITHUB_WORKSPACE"
 
 REPO_TOKEN="$1"
-github_ref="$2"
+base_ref="$2"
 
 PR_HREF=$(cat "$GITHUB_EVENT_PATH" | jq -r '.pull_request._links.self.href')
 
@@ -41,6 +41,8 @@ if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
 else
     where=HEAD~$(jq '.commits | length' "${GITHUB_EVENT_PATH}")
 fi
+
+echo "WHERE $where"
 
 diff=$(git diff $where pubspec.yaml)
 
