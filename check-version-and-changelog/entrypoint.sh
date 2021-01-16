@@ -25,16 +25,19 @@ function send_message_and_bail {
     exit 1
 }
 
-# echo "PARAM GITHUB REF: $github_ref"
-# echo "GITHUB EVENT NAME: $GITHUB_EVENT_NAME"
-# echo "GITHUB REF: $GITHUB_REF"
-# echo "GITHUB BASE REF: $GITHUB_BASE_REF"
-# echo "GITHUB HEAD REF: $GITHUB_HEAD_REF"
+echo "ENVS"
+echo "GITHUB EVENT NAME: $GITHUB_EVENT_NAME"
+echo "GITHUB REF: $GITHUB_REF"
+echo "GITHUB BASE REF: $GITHUB_BASE_REF"
+echo "GITHUB HEAD REF: $GITHUB_HEAD_REF"
+echo "INPUT"
+echo "github_ref: $github_ref"
+echo "base_ref: $base_ref"
 
 git fetch --prune --unshallow
 
 if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
-    where="origin/$github_ref"
+    where="origin/$base_ref"
 else
     where=HEAD~$(jq '.commits | length' "${GITHUB_EVENT_PATH}")
 fi
@@ -48,11 +51,11 @@ echo "$diff" | grep -E '\+.*version' || {
 package_version=$(cat pubspec.yaml | oq -i YAML -r '.version')
 
 # If are on master or beta
-if [ "$github_ref" = "master" ] || [ "$github_ref" = "refs/heads/master" ]; then
+if [ "$base_ref" = "master" ] || [ "$base_ref" = "refs/heads/master" ]; then
     echo "$package_version" | grep "beta" && {
         send_message_and_bail "You can't merge a \"beta\" version on \`master\` branch!"
     }
-elif [ "$github_ref" = "beta" ] || [ "$github_ref" = "refs/heads/beta" ]; then
+elif [ "$base_ref" = "beta" ] || [ "$base_ref" = "refs/heads/beta" ]; then
     echo "$package_version" | grep "beta" || {
         send_message_and_bail "You can only merge a \"beta\" version on \`beta\` branch!"
     }
