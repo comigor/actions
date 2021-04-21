@@ -63,7 +63,7 @@ for ppath in $(find . -name pubspec.yaml | grep -ve "$DTA_EXCLUDE_REGEX"); do
 
   if [ "$DTA_DISABLE_LINTER" = "false" ]; then
     echo "=== Running linter ==="
-    dartfmt -n . --set-exit-if-changed
+    dartfmt -n .
     # OUTPUT=$(dartfmt -n . --set-exit-if-changed 2>&1)
 
     # if [ $? -ne 0 ]; then
