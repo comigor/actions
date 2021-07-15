@@ -44,13 +44,14 @@ fi
 
 echo "WHERE $where"
 
+package_version=$(cat pubspec.yaml | oq -i YAML -r '.version')
+echo "::set-output name=package_version::$package_version"
+
 diff=$(git diff $where pubspec.yaml)
 
 echo "$diff" | grep -E '\+.*version' || {
     send_message_and_bail "You must bump the version on pubspec!"
 }
-
-package_version=$(cat pubspec.yaml | oq -i YAML -r '.version')
 
 # If are on master or beta
 if [ "$base_ref" = "master" ] || [ "$base_ref" = "refs/heads/master" ]; then
@@ -66,5 +67,3 @@ fi
 cat CHANGELOG.md | grep -q "$package_version" || {
     send_message_and_bail "Version \`$package_version\` not found on CHANGELOG!"
 }
-
-echo "::set-output name=package_version::$package_version"
