@@ -1,0 +1,14 @@
+name: Git Secret
+description: |
+  Reveals you git secrets given a private key.
+  For the love of Goku, don't use it on public repos.
+  Actually, don't use it at all.
+inputs:
+  gpg_key:
+    description: |
+      GPG password-less private key (in ARMOR format)
+      to decrypt repository's git-secret.
+    required: true
+runs:
+  using: docker
+  image: Dockerfile
