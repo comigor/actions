@@ -1,4 +1,4 @@
-FROM cirrusci/flutter:beta
+FROM cirrusci/flutter:2.10.5
 
 ENV PUB_CREDENTIALS="{}"
 ENV PUB_IS_FLUTTER=""
