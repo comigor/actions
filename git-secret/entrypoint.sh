@@ -8,6 +8,7 @@ shred -fu /tmp/private.key
 
 gpg2 -K
 
+cd $GITHUB_WORKSPACE
 git secret reveal
 
 if [ -f ".env" ]; then
