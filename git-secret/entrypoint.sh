@@ -9,6 +9,8 @@ shred -fu /tmp/private.key
 gpg2 -K
 
 echo "Workspace: $GITHUB_WORKSPACE"
+pwd
+ls $GITHUB_WORKSPACE
 cd $GITHUB_WORKSPACE
 git remote -v
 git secret reveal
