@@ -1,11 +1,11 @@
-FROM cirrusci/flutter:2.10.5
+FROM cirrusci/flutter:3.3.4
 
 ENV PUB_CREDENTIALS="{}"
 ENV PUB_IS_FLUTTER=""
 
 LABEL "maintainer"="Igor Borges <igor@borges.dev>"
 LABEL "repository"="https://github.com/comigor/actions"
-LABEL "version"="3.1.0"
+LABEL "version"="4.0.0"
 
 LABEL "com.github.actions.name"="Pub Publish"
 LABEL "com.github.actions.description"="Publishes a Dart package to pub.dartlang.org"
